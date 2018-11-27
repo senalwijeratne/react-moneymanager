@@ -18,6 +18,16 @@ const CardTop = styled.div`
   display: flex;
   flex-direction: row;
 
+  img {
+    width: 20%;
+    height: 20%;
+    padding: 20px;
+    margin: -30px 0px 0px 20px;
+    background: ${props => props.bgColor};
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+
   div {
     display: flex;
     margin: 0px 20px 0px auto;
@@ -40,7 +50,7 @@ const CardTop = styled.div`
 
   div > p {
     font-size: 1rem;
-    color: #62c466;
+    color: ${props => props.bgColor};
   }
 `
 const CardBottom = styled.div`
@@ -65,18 +75,8 @@ const CardBottom = styled.div`
   }
 `
 
-const IconContainer = styled.img`
-  width: 20%;
-  height: 20%;
-  padding: 20px;
-  margin: -30px 0px 0px 20px;
-  background: ${props => props.bgColor};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-`
-
-const FlashCard = ({ icon, bgColor, amount }) => {
-  const amountTest = () => {
+const FlashCard = ({ icon, bgColor, amount, cardType }) => {
+  const addCommas = () => {
     return amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
@@ -86,11 +86,11 @@ const FlashCard = ({ icon, bgColor, amount }) => {
 
   return (
     <CardContainer>
-      <CardTop>
-        <IconContainer src={icon} alt="icon" bgColor={bgColor} />
+      <CardTop bgColor={bgColor}>
+        <img src={icon} alt="icon" bgColor={bgColor} />
         <div>
-          <p>Balance</p>
-          <h1>{`Rs  ${amountTest()}`}</h1>
+          <p>{cardType}</p>
+          <h1>{`Rs  ${addCommas()}`}</h1>
         </div>
       </CardTop>
       <CardBottom>
