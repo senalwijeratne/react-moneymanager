@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 200px;
+  margin-top: 40px;
   max-width: 400px;
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -33,12 +33,13 @@ const CardTop = styled.div`
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    /* font-size: 64px; */
+    font-size: 2rem;
     text-align: right;
     color: #505050;
   }
 
   div > p {
+    font-size: 1rem;
     color: #62c466;
   }
 `
@@ -65,45 +66,39 @@ const CardBottom = styled.div`
 `
 
 const IconContainer = styled.img`
-  width: auto;
-  height: auto;
+  width: 20%;
+  height: 20%;
   padding: 20px;
-  margin: -40px 0px 0px 20px;
+  margin: -30px 0px 0px 20px;
   background: ${props => props.bgColor};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 `
 
-class FlashCard extends Component {
-  amountTest = () => {
-    return this.props.amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+const FlashCard = ({ icon, bgColor, amount }) => {
+  const amountTest = () => {
+    return amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
-  dateRangeText = () => {
+  const dateRangeText = () => {
     return '1st nov 2018 - today'
   }
 
-  render() {
-    return (
-      <CardContainer>
-        <CardTop>
-          <IconContainer
-            src={this.props.icon}
-            alt="icon"
-            bgColor={this.props.bgColor}
-          />
-          <div>
-            <p>Balance</p>
-            <h1>{`Rs  ${this.amountTest()}`}</h1>
-          </div>
-        </CardTop>
-        <CardBottom>
-          <span />
-          <p>{this.dateRangeText()}</p>
-        </CardBottom>
-      </CardContainer>
-    )
-  }
+  return (
+    <CardContainer>
+      <CardTop>
+        <IconContainer src={icon} alt="icon" bgColor={bgColor} />
+        <div>
+          <p>Balance</p>
+          <h1>{`Rs  ${amountTest()}`}</h1>
+        </div>
+      </CardTop>
+      <CardBottom>
+        <span />
+        <p>{dateRangeText()}</p>
+      </CardBottom>
+    </CardContainer>
+  )
 }
 
 export default FlashCard
