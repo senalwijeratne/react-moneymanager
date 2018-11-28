@@ -5,6 +5,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+  margin-right: 20px;
   max-width: 400px;
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -39,12 +40,8 @@ const CardTop = styled.div`
   div > h1 {
     margin: 0;
     text-align: right;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 300;
-    line-height: normal;
     font-size: 2rem;
-    text-align: right;
     color: #505050;
   }
 
@@ -65,10 +62,7 @@ const CardBottom = styled.div`
   }
 
   p {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 300;
-    line-height: normal;
     font-size: 0.8rem;
     margin: 0px auto 15px 20px;
     color: #505050;
