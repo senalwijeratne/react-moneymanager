@@ -6,7 +6,6 @@ const TableContainer = styled.div`
   flex-direction: column;
   width: 100%;
   min-height: 200px;
-  margin-top: 70px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -56,22 +55,42 @@ const TransactionTable = props => {
           <th>Date</th>
           <th>Amount</th>
         </tr>
-        <TableRow inflow={true}>
+        <TableRow inflow>
           <td>Some Inflow</td>
           <td>25-12-2018</td>
           <td>Rs 1000</td>
         </TableRow>
-        <TableRow inflow={false}>
+        <TableRow>
           <td>Some Outflow</td>
           <td>24-12-2018</td>
           <td>Rs 600</td>
         </TableRow>
-        <TableRow inflow={true}>
+        <TableRow inflow>
           <td>Some Inflow</td>
           <td>24-12-2018</td>
           <td>Rs 20000</td>
         </TableRow>
-        <TableRow inflow={false}>
+        <TableRow>
+          <td>Some Outflow</td>
+          <td>23-12-2018</td>
+          <td>Rs 6000</td>
+        </TableRow>
+        <TableRow inflow>
+          <td>Some Inflow</td>
+          <td>25-12-2018</td>
+          <td>Rs 1000</td>
+        </TableRow>
+        <TableRow>
+          <td>Some Outflow</td>
+          <td>24-12-2018</td>
+          <td>Rs 600</td>
+        </TableRow>
+        <TableRow inflow>
+          <td>Some Inflow</td>
+          <td>24-12-2018</td>
+          <td>Rs 20000</td>
+        </TableRow>
+        <TableRow>
           <td>Some Outflow</td>
           <td>23-12-2018</td>
           <td>Rs 6000</td>

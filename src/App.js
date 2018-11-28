@@ -19,10 +19,12 @@ const MainSection = styled.div`
   width: 100%;
   margin: 20px 20px 20px 20px;
   text-align: center;
-  div {
-    display: flex;
-    justify-content: flex-start;
-  }
+`
+
+const FlashCardSection = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 70px;
 `
 
 class App extends Component {
@@ -31,7 +33,7 @@ class App extends Component {
       <AppContainer>
         <NavBar />
         <MainSection>
-          <div>
+          <FlashCardSection>
             <FlashCard
               cardType={'Balance'}
               icon={dollarIcon}
@@ -50,7 +52,7 @@ class App extends Component {
               bgColor={'#F16262'}
               amount={'6800'}
             />
-          </div>
+          </FlashCardSection>
           <TransactionTable />
         </MainSection>
       </AppContainer>
