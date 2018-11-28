@@ -6,7 +6,7 @@ const TableContainer = styled.div`
   flex-direction: column;
   width: 100%;
   min-height: 200px;
-  margin-top: 100px;
+  margin-top: 70px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -20,11 +20,8 @@ const TableContainer = styled.div`
     border-radius: 10px;
   }
   div > h2 {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 300;
-    padding: 10px 20px 10px 20px;
-    line-height: normal;
+    padding-left: 20px;
     font-size: 2rem;
     color: #ffffff;
   }
