@@ -47,7 +47,7 @@ const TransactionTable = props => {
   return (
     <TableContainer>
       <div>
-        <h2>Recent Transactions</h2>
+        <h2>{props.tableType} Transactions</h2>
       </div>
       <Table>
         <tr>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const NavButtonContainer = styled.button`
   display: flex;
@@ -13,6 +14,7 @@ const NavButtonContainer = styled.button`
     props.selected ? '0px 4px 4px rgba(0, 0, 0, 0.25)' : ''};
   border-radius: 10px;
   margin-bottom: 10px;
+  outline: none;
 
   color: #ffffff;
   cursor: pointer;
@@ -30,12 +32,14 @@ const NavButtonContainer = styled.button`
   }
 `
 
-const NavButton = ({ icon, selected }) => {
+const NavButton = ({ type, icon, selected, toLink }) => {
   return (
-    <NavButtonContainer selected={selected}>
-      <img src={icon} alt="icon" />
-      <p>Button</p>
-    </NavButtonContainer>
+    <Link to={toLink}>
+      <NavButtonContainer selected={selected}>
+        <img src={icon} alt="icon" />
+        <p>{type}</p>
+      </NavButtonContainer>
+    </Link>
   )
 }
 

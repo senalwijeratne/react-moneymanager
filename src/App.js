@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import FlashCard from './components/FlashCard'
-import TransactionTable from './components/TransactionTable'
 import NavBar from './components/NavBar'
-
-import dollarIcon from './icons/dollar.png'
-import upArrowIcon from './icons/arrow-up.png'
-import downArrowIcon from './icons/arrow-down.png'
+import Dashboard from './components/Dashboard'
+import TransactionTable from './components/TransactionTable'
 
 const AppContainer = styled.div`
   display: flex;
@@ -17,45 +14,34 @@ const MainSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 20px 20px 20px 20px;
-  text-align: center;
-`
-
-const FlashCardSection = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 70px;
+  margin: 60px 20px 20px 20px;
 `
 
 class App extends Component {
   render() {
     return (
-      <AppContainer>
-        <NavBar />
-        <MainSection>
-          <FlashCardSection>
-            <FlashCard
-              cardType={'Balance'}
-              icon={dollarIcon}
-              bgColor={'#ab3fff'}
-              amount={'5800'}
+      <Router>
+        <AppContainer>
+          <NavBar />
+          <MainSection>
+            <Route exact path={'/'} component={Dashboard} />
+            <Route
+              exact
+              path={'/inflow/'}
+              render={() => {
+                return <TransactionTable tableType={'Inflow'} />
+              }}
             />
-            <FlashCard
-              cardType={'Inflow'}
-              icon={upArrowIcon}
-              bgColor={'#62C466'}
-              amount={'12600'}
+            <Route
+              exact
+              path={'/outflow/'}
+              render={() => {
+                return <TransactionTable tableType={'Outflow'} />
+              }}
             />
-            <FlashCard
-              cardType={'Outflow'}
-              icon={downArrowIcon}
-              bgColor={'#F16262'}
-              amount={'6800'}
-            />
-          </FlashCardSection>
-          <TransactionTable />
-        </MainSection>
-      </AppContainer>
+          </MainSection>
+        </AppContainer>
+      </Router>
     )
   }
 }

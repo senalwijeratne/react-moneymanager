@@ -12,7 +12,7 @@ const NavBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  /* height: 100vh; */
+  min-height: 100vh;
   background-color: #505050;
 `
 
@@ -37,6 +37,9 @@ const NavLinks = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px 20px 0px 20px;
+  & > a {
+    text-decoration: none;
+  }
 `
 
 class NavBar extends Component {
@@ -48,9 +51,14 @@ class NavBar extends Component {
           <span>Money Manager</span>
         </LogoTitle>
         <NavLinks>
-          <NavButton icon={dashboardIcon} selected />
-          <NavButton icon={downArrowIcon} />
-          <NavButton icon={upArrowIcon} />
+          <NavButton
+            type={'Dashboard'}
+            icon={dashboardIcon}
+            toLink={'/'}
+            selected
+          />
+          <NavButton type={'Inflow'} icon={downArrowIcon} toLink={'/inflow'} />
+          <NavButton type={'Outflow'} icon={upArrowIcon} toLink={'/outflow'} />
         </NavLinks>
       </NavBarContainer>
     )

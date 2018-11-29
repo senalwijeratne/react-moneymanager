@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   margin-right: 20px;
   max-width: 400px;
   background-color: #ffffff;
