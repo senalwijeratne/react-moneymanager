@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Dashboard from './components/Dashboard'
 import TransactionTable from './components/TransactionTable'
+import BackDrop from './components/Backdrop'
 
 const AppContainer = styled.div`
   display: flex;
+  /* height: 100vh; */
 `
 
 const MainSection = styled.div`
@@ -16,13 +18,49 @@ const MainSection = styled.div`
   width: 100%;
   margin: 60px 20px 20px 20px;
 `
+const SideToggle = styled.div`
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: -60px;
+  position: fixed;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+`
 
 class App extends Component {
+  state = {
+    sideBarOpen: false
+  }
+
+  sideBarToggleHandler = () => {
+    this.setState(prevState => {
+      console.log('this is it!')
+      return { sideBarOpen: !prevState.sideBarOpen }
+    })
+  }
+
+  backDropClickHandler = () => {
+    console.log('this is firing')
+    this.setState({ sideBarOpen: false })
+  }
+
   render() {
     return (
       <Router>
         <AppContainer>
-          <NavBar />
+          {this.state.sideBarOpen ? (
+            <React.Fragment>
+              <BackDrop click={this.backDropClickHandler} />
+            </React.Fragment>
+          ) : (
+            <SideToggle onClick={this.sideBarToggleHandler} />
+          )}
+          <NavBar
+            show={this.state.sideBarOpen}
+            buttonClick={this.backDropClickHandler}
+          />
           <MainSection>
             <Route exact path={'/'} component={Dashboard} />
             <Route

@@ -13,6 +13,9 @@ const CardContainer = styled.div`
   hr {
     width: calc(100%-40px);
   }
+
+  @media only screen and (max-width: 900px) {
+  }
 `
 const CardTop = styled.div`
   display: flex;
@@ -68,7 +71,7 @@ const CardBottom = styled.div`
   }
 `
 
-const FlashCard = ({ icon, bgColor, amount, cardType }) => {
+const FlashCard = ({ icon, bgColor, amount, cardType, buttonClick }) => {
   const addCommas = () => {
     return amount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }

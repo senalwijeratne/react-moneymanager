@@ -32,10 +32,10 @@ const NavButtonContainer = styled.button`
   }
 `
 
-const NavButton = ({ type, icon, selected, toLink }) => {
+const NavButton = ({ type, icon, selected, toLink, buttonClick }) => {
   return (
     <Link to={toLink}>
-      <NavButtonContainer selected={selected}>
+      <NavButtonContainer selected={selected} onClick={buttonClick}>
         <img src={icon} alt="icon" />
         <p>{type}</p>
       </NavButtonContainer>
