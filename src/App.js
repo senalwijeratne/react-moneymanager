@@ -7,6 +7,8 @@ import Dashboard from './components/Dashboard'
 import TransactionTable from './components/TransactionTable'
 import BackDrop from './components/Backdrop'
 
+import menuIcon from './icons/forwardWhite.png'
+
 const AppContainer = styled.div`
   display: flex;
   /* height: 100vh; */
@@ -18,14 +20,15 @@ const MainSection = styled.div`
   width: 100%;
   margin: 60px 20px 20px 20px;
 `
-const SideToggle = styled.div`
-  width: 100px;
-  height: 100px;
-  top: 50%;
-  left: -60px;
+
+const SideToggle = styled.img`
+  width: 7vh;
+  height: 7vh;
+  top: 1vh;
+  left: 1vh;
   position: fixed;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
 `
 
@@ -55,7 +58,7 @@ class App extends Component {
               <BackDrop click={this.backDropClickHandler} />
             </React.Fragment>
           ) : (
-            <SideToggle onClick={this.sideBarToggleHandler} />
+            <SideToggle src={menuIcon} onClick={this.sideBarToggleHandler} />
           )}
           <NavBar
             show={this.state.sideBarOpen}

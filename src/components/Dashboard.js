@@ -11,8 +11,14 @@ import downArrowIcon from '../icons/arrow-down.png'
 
 const FlashCardSection = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 70px;
+  align-items: stretch;
+  margin-bottom: 20px;
+
+  @media only screen and (max-width: 900px) {
+    margin-bottom: 0px;
+  }
 `
 
 class Dashboard extends Component {
@@ -28,13 +34,13 @@ class Dashboard extends Component {
           />
           <FlashCard
             cardType={'Inflow'}
-            icon={upArrowIcon}
+            icon={downArrowIcon}
             bgColor={'#62C466'}
             amount={'12600'}
           />
           <FlashCard
             cardType={'Outflow'}
-            icon={downArrowIcon}
+            icon={upArrowIcon}
             bgColor={'#F16262'}
             amount={'6800'}
           />

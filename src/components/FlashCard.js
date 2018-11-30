@@ -5,7 +5,9 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 20px;
-  max-width: 400px;
+  margin-bottom: 50px;
+  max-width: 300px;
+  width: 100%;
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -15,6 +17,9 @@ const CardContainer = styled.div`
   }
 
   @media only screen and (max-width: 900px) {
+    max-width: none;
+    margin-bottom: 50px;
+    margin-right: 0px;
   }
 `
 const CardTop = styled.div`

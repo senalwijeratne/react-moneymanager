@@ -57,6 +57,7 @@ const NavLinks = styled.nav`
   display: flex;
   flex-direction: column;
   margin: 20px 20px 0px 20px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   & > a {
     text-decoration: none;
   }
