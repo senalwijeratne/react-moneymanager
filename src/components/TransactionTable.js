@@ -32,6 +32,9 @@ const Table = styled.table`
   th {
     color: #ab3fff;
     padding-bottom: 10px;
+    @media only screen and (max-width: 900px) {
+      font-weight: 500;
+    }
   }
   td {
     padding: 10px 0px 10px 0px;
