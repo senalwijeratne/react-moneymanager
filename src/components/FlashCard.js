@@ -88,7 +88,7 @@ const FlashCard = ({ icon, bgColor, amount, cardType, buttonClick }) => {
   return (
     <CardContainer>
       <CardTop bgColor={bgColor}>
-        <img src={icon} alt="icon" bgColor={bgColor} />
+        <img src={icon} alt="icon" />
         <div>
           <p>{cardType}</p>
           <h1>{`Rs  ${addCommas()}`}</h1>

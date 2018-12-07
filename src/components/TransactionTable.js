@@ -53,51 +53,53 @@ const TransactionTable = props => {
         <h2>{props.tableType} Transactions</h2>
       </div>
       <Table>
-        <tr>
-          <th>Description</th>
-          <th>Date</th>
-          <th>Amount</th>
-        </tr>
-        <TableRow inflow>
-          <td>Some Inflow</td>
-          <td>25-12-2018</td>
-          <td>Rs 1000</td>
-        </TableRow>
-        <TableRow>
-          <td>Some Outflow</td>
-          <td>24-12-2018</td>
-          <td>Rs 600</td>
-        </TableRow>
-        <TableRow inflow>
-          <td>Some Inflow</td>
-          <td>24-12-2018</td>
-          <td>Rs 20000</td>
-        </TableRow>
-        <TableRow>
-          <td>Some Outflow</td>
-          <td>23-12-2018</td>
-          <td>Rs 6000</td>
-        </TableRow>
-        <TableRow inflow>
-          <td>Some Inflow</td>
-          <td>25-12-2018</td>
-          <td>Rs 1000</td>
-        </TableRow>
-        <TableRow>
-          <td>Some Outflow</td>
-          <td>24-12-2018</td>
-          <td>Rs 600</td>
-        </TableRow>
-        <TableRow inflow>
-          <td>Some Inflow</td>
-          <td>24-12-2018</td>
-          <td>Rs 20000</td>
-        </TableRow>
-        <TableRow>
-          <td>Some Outflow</td>
-          <td>23-12-2018</td>
-          <td>Rs 6000</td>
-        </TableRow>
+        <tbody>
+          <tr>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+          <TableRow inflow>
+            <td>Some Inflow</td>
+            <td>25-12-2018</td>
+            <td>Rs 1000</td>
+          </TableRow>
+          <TableRow>
+            <td>Some Outflow</td>
+            <td>24-12-2018</td>
+            <td>Rs 600</td>
+          </TableRow>
+          <TableRow inflow>
+            <td>Some Inflow</td>
+            <td>24-12-2018</td>
+            <td>Rs 20000</td>
+          </TableRow>
+          <TableRow>
+            <td>Some Outflow</td>
+            <td>23-12-2018</td>
+            <td>Rs 6000</td>
+          </TableRow>
+          <TableRow inflow>
+            <td>Some Inflow</td>
+            <td>25-12-2018</td>
+            <td>Rs 1000</td>
+          </TableRow>
+          <TableRow>
+            <td>Some Outflow</td>
+            <td>24-12-2018</td>
+            <td>Rs 600</td>
+          </TableRow>
+          <TableRow inflow>
+            <td>Some Inflow</td>
+            <td>24-12-2018</td>
+            <td>Rs 20000</td>
+          </TableRow>
+          <TableRow>
+            <td>Some Outflow</td>
+            <td>23-12-2018</td>
+            <td>Rs 6000</td>
+          </TableRow>
+        </tbody>
       </Table>
     </TableContainer>
   )

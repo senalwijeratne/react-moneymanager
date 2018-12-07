@@ -39,13 +39,13 @@ class App extends Component {
 
   sideBarToggleHandler = () => {
     this.setState(prevState => {
-      console.log('this is it!')
+      console.log('SideBar Toggled')
       return { sideBarOpen: !prevState.sideBarOpen }
     })
   }
 
   backDropClickHandler = () => {
-    console.log('this is firing')
+    console.log('Backdrop Clicked')
     this.setState({ sideBarOpen: false })
   }
 
