@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { gql } from 'apollo-boost'
+import { graphql } from 'react-apollo'
 
 const TableContainer = styled.div`
   display: flex;
@@ -46,7 +48,22 @@ const TableRow = styled.tr`
   color: ${props => (props.inflow ? '#62C466' : '#F16262')};
 `
 
+const getTransactions = gql`
+  {
+    transactions {
+      id
+      description
+      amount
+      person {
+        id
+        name
+      }
+    }
+  }
+`
+
 const TransactionTable = props => {
+  console.log(props)
   return (
     <TableContainer>
       <div>
@@ -105,4 +122,4 @@ const TransactionTable = props => {
   )
 }
 
-export default TransactionTable
+export default graphql(getTransactions)(TransactionTable)

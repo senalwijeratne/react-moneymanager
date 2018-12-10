@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
 
 import NavBar from './components/NavBar'
 import Dashboard from './components/Dashboard'
@@ -11,7 +13,6 @@ import menuIcon from './icons/forwardWhite.png'
 
 const AppContainer = styled.div`
   display: flex;
-  /* height: 100vh; */
 `
 
 const MainSection = styled.div`
@@ -32,6 +33,10 @@ const SideToggle = styled.img`
   cursor: pointer;
 `
 
+const client = new ApolloClient({
+  uri: 'https://api-apeast.graphcms.com/v1/cjpatthzi0uje01gzz60r3a7y/master'
+})
+
 class App extends Component {
   state = {
     sideBarOpen: false
@@ -51,38 +56,40 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <AppContainer>
-          {this.state.sideBarOpen ? (
-            <React.Fragment>
-              <BackDrop click={this.backDropClickHandler} />
-            </React.Fragment>
-          ) : (
-            <SideToggle src={menuIcon} onClick={this.sideBarToggleHandler} />
-          )}
-          <NavBar
-            show={this.state.sideBarOpen}
-            buttonClick={this.backDropClickHandler}
-          />
-          <MainSection>
-            <Route exact path={'/'} component={Dashboard} />
-            <Route
-              exact
-              path={'/inflow/'}
-              render={() => {
-                return <TransactionTable tableType={'Inflow'} />
-              }}
+      <ApolloProvider client={client}>
+        <Router>
+          <AppContainer>
+            {this.state.sideBarOpen ? (
+              <React.Fragment>
+                <BackDrop click={this.backDropClickHandler} />
+              </React.Fragment>
+            ) : (
+              <SideToggle src={menuIcon} onClick={this.sideBarToggleHandler} />
+            )}
+            <NavBar
+              show={this.state.sideBarOpen}
+              buttonClick={this.backDropClickHandler}
             />
-            <Route
-              exact
-              path={'/outflow/'}
-              render={() => {
-                return <TransactionTable tableType={'Outflow'} />
-              }}
-            />
-          </MainSection>
-        </AppContainer>
-      </Router>
+            <MainSection>
+              <Route exact path={'/'} component={Dashboard} />
+              <Route
+                exact
+                path={'/inflow/'}
+                render={() => {
+                  return <TransactionTable tableType={'Inflow'} />
+                }}
+              />
+              <Route
+                exact
+                path={'/outflow/'}
+                render={() => {
+                  return <TransactionTable tableType={'Outflow'} />
+                }}
+              />
+            </MainSection>
+          </AppContainer>
+        </Router>
+      </ApolloProvider>
     )
   }
 }
